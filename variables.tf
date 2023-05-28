@@ -42,6 +42,15 @@ variable "project_name" {
   type        = string
 }
 
+variable "vcs_repo" {
+  default     = null
+  description = "The VCS repository to associate with the workspace."
+  type = object({
+    identifier                 = string
+    github_app_installation_id = string
+  })
+}
+
 variable "tags" {
   default     = []
   description = "A list of tags to add to the workspace."
