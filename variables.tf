@@ -48,6 +48,12 @@ variable "tags" {
   type        = list(string)
 }
 
+variable "variable_set_ids" {
+  default     = []
+  description = "A list of variable set IDs to associate with the workspace."
+  type        = list(string)
+}
+
 variable "variables" {
   default     = {}
   description = "A map of variables to add to the workspace."
@@ -59,12 +65,6 @@ variable "variables" {
     sensitive   = optional(bool)
     value       = string
   }))
-}
-
-variable "variable_set_ids" {
-  default     = []
-  description = "A list of variable set IDs to associate with the workspace."
-  type        = list(string)
 }
 
 variable "vcs_repo" {
