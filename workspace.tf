@@ -23,6 +23,8 @@ resource "tfe_variable" "self" {
   for_each = var.variables
 
   category     = each.value.category
+  description  = each.value.description
+  hcl          = each.value.hcl
   key          = each.value.key
   sensitive    = each.value.sensitive
   value        = each.value.value
