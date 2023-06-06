@@ -42,6 +42,12 @@ variable "project_name" {
   type        = string
 }
 
+variable "tags" {
+  default     = []
+  description = "A list of tags to add to the workspace."
+  type        = list(string)
+}
+
 variable "vcs_repo" {
   default     = null
   description = "The VCS repository to associate with the workspace."
@@ -51,8 +57,15 @@ variable "vcs_repo" {
   })
 }
 
-variable "tags" {
-  default     = []
-  description = "A list of tags to add to the workspace."
-  type        = list(string)
+variable "workspace_variables" {
+  default     = {}
+  description = "A map of variables to add to the workspace."
+  type = map(object({
+    category    = string
+    description = optional(string)
+    hcl         = optional(bool)
+    key         = string
+    sensitive   = optional(bool)
+    value       = string
+  }))
 }

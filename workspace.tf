@@ -18,3 +18,13 @@ resource "tfe_workspace" "self" {
     }
   }
 }
+
+resource "tfe_variable" "self" {
+  for_each = var.workspace_variables
+
+  category     = each.value.category
+  key          = each.value.key
+  sensitive    = each.value.sensitive
+  value        = each.value.value
+  workspace_id = tfe_workspace.self.id
+}
