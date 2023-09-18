@@ -14,8 +14,7 @@ resource "tfe_workspace" "self" {
     for_each = var.vcs_repo != null ? [1] : []
 
     content {
-      identifier                 = var.vcs_repo.identifier
-      github_app_installation_id = var.vcs_repo.github_app_installation_id
+      identifier = var.vcs_repo.identifier
     }
   }
 }
